@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        releaseConfig {
+            keyAlias "${signing_keyAlias}"
+            keyPassword "${signging_certificatePassword}"
+            storeFile file('/Users/sunpeng/Documents/wicresoft/myProject/studio_workspace/AllroundApp/AllroundApp.jks')
+            storePassword "${signging_storePassword}"
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.wicrenet.allroundapp"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode project.properties['VERSION_CODE'].toInteger()
+        versionName project.properties['VERSION_NAME']
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
+            buildConfigField('String', 'SERVER_URL', project.properties['RELEASE_SERVER'])
+        }
+        debug {
+            minifyEnabled false
+            buildConfigField('String', 'SERVER_URL', project.properties['DEBUG_SERVER'])
+        }
+    }
+}
+
+repositories {
+    maven {
+        url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
+    }
+    flatDir {
+        dirs 'libs'
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile project(':irecyclerview')
+    compile project(':common')
+    compile files('libs/alicloud-android-utils-1.0.1.jar')
+//    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile(name: 'alisdk-hotfix-2.0.8', ext: 'aar')
+}
