@@ -41,9 +41,6 @@ public class APP {
 
     // Activity栈
     private static Stack<Activity> activityStack;
-
-
-
     /**
      * 得到APP Single Instance
      *

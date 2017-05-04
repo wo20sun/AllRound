@@ -26,6 +26,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".WebActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
         <!-- hot fix -->
         <meta-data
             android:name="com.taobao.android.hotfix.IDSECRET"
