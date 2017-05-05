@@ -36,6 +36,8 @@ public class APP {
         private static final APP mInstance = new APP();
     }
 
+
+
     private Handler mHandler;
     private Activity mCurActivity;
 
