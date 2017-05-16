@@ -2,11 +2,8 @@ package com.wicrenet.allroundapp;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.DownloadManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -35,8 +32,6 @@ public class APP {
 
         private static final APP mInstance = new APP();
     }
-
-
 
     private Handler mHandler;
     private Activity mCurActivity;

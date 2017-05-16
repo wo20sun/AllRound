@@ -9,8 +9,8 @@ android {
             storePassword "${signging_storePassword}"
         }
     }
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "com.wicrenet.allroundapp"
         minSdkVersion 14
@@ -33,6 +33,12 @@ android {
     }
 }
 
+sourceSets{
+    main{
+        java.srcDirs = ['src/main/java', 'src/main/aidl']
+    }
+}
+
 repositories {
     maven {
         url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
@@ -52,6 +58,6 @@ dependencies {
     compile project(':irecyclerview')
     compile project(':common')
     compile files('libs/alicloud-android-utils-1.0.1.jar')
-//    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    //    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
     compile(name: 'alisdk-hotfix-2.0.8', ext: 'aar')
 }
